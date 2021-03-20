@@ -1,3 +1,7 @@
+#include "config.h"
+
+#if CROWN_PLATFORM_WINDOWS
+
 #define WIN32_LEAN_AND_MEAN
 #include <Windows.h>
 
@@ -14,9 +18,12 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrecInstance, LPSTR lpCmdLine
         freopen("CONOUT$", "w", stderr);
     }
 
-    printf("Hello\n");
+    // TODO: WSAStartup()
 
     Sleep(5*1000);
 
     return 0;
 }
+
+#endif
+

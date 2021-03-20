@@ -3,6 +3,18 @@
 
 ## 2021-03-20
 
+CommandLine
+
+* `src/core/command_line.h & .cpp`
+  * depends on `src/core/strings/string.inl`
+    * depends on `src/error/error.inl`
+
+build config macro
+
+* CROWN_DEBUG, msvc Debug
+* CROWN_RELEASE, msvc Release
+* don't support CROWN_DEVELOPMENT
+
 compiling macros
 
 * `src/core/platform.h` 定义所有 macro 的默认值

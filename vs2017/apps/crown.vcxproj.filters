@@ -1,13 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="device">
+    <Filter Include="source">
+      <UniqueIdentifier>{31348a06-ca45-45ee-b35a-be22f0f9d6e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\device">
       <UniqueIdentifier>{1a5e7a2c-99ca-4937-8da3-4abd6118e4a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\core">
+      <UniqueIdentifier>{3ca4e315-c46e-433d-819f-840b2fdcb6b9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\device\main_windows.cpp">
-      <Filter>device</Filter>
+      <Filter>source\device</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\config.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\core\platform.h">
+      <Filter>source\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\core\types.h">
+      <Filter>source\core</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

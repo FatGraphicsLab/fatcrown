@@ -21,6 +21,11 @@
   <ItemGroup>
     <ClCompile Include="..\..\src\device\main_windows.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\config.h" />
+    <ClInclude Include="..\..\src\core\platform.h" />
+    <ClInclude Include="..\..\src\core\types.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{8F189920-6D99-4112-AE7E-5C77A1D27657}</ProjectGuid>
