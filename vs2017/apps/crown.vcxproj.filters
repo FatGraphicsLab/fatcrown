@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="device">
+      <UniqueIdentifier>{1a5e7a2c-99ca-4937-8da3-4abd6118e4a4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\device\main_windows.cpp">
+      <Filter>device</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
