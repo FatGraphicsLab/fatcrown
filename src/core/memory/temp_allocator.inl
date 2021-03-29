@@ -3,7 +3,12 @@
  * License: https://github.com/FatGraphicsLab/fatcrown/blob/main/LICENSE
  *
  * @author   kasicass@gmail.com
- * @date     2021-03-27
+ * @date     2021-03-29
  */
 
-#include "core/platform.h"
+ /*
+  * Copyright (C) 2012 Bitsquid AB
+  * License: https://bitbucket.org/bitsquid/foundation/src/default/LICENCSE
+  */
+
+#pragma once

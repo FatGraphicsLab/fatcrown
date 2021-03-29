@@ -3,8 +3,21 @@
 
 ## 2021-03-27
 
+solutions
+
 * re-arrange `[vs2017]` into `[solutions]`
 * we will support more platform in the future
+
+short objective
+
+* see unittest runs~
+
+finished
+
+* `src/core/error/error.h`
+* `src/core/error/error.inl`
+* `src/memory/allocator.h`
+* `src/memory/types.h`
 
 
 ## 2021-03-27

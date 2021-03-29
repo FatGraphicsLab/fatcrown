@@ -3,7 +3,19 @@
  * License: https://github.com/FatGraphicsLab/fatcrown/blob/main/LICENSE
  *
  * @author   kasicass@gmail.com
- * @date     2021-03-27
+ * @date     2021-03-29
  */
 
-#include "core/platform.h"
+#pragma once
+
+#include "core/types.h"
+
+namespace crown
+{
+
+namespace error
+{
+    void abort(const char* format, ...);
+}
+
+}

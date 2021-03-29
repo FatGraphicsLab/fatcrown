@@ -10,6 +10,12 @@
     <Filter Include="source\core">
       <UniqueIdentifier>{3ca4e315-c46e-433d-819f-840b2fdcb6b9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\core\error">
+      <UniqueIdentifier>{b022d94c-910a-41d2-bb92-86cb0caa7481}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\core\memory">
+      <UniqueIdentifier>{db0cb22d-74f8-409b-b79d-fc7a5993dc65}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\src\device\main_windows.cpp">
@@ -26,5 +32,22 @@
     <ClInclude Include="..\..\..\src\core\types.h">
       <Filter>source\core</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\src\core\memory\allocator.h">
+      <Filter>source\core\memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\core\memory\types.h">
+      <Filter>source\core\memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\core\error\error.h">
+      <Filter>source\core\error</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\src\core\memory\temp_allocator.inl">
+      <Filter>source\core\memory</Filter>
+    </None>
+    <None Include="..\..\..\src\core\error\error.inl">
+      <Filter>source\core\error</Filter>
+    </None>
   </ItemGroup>
 </Project>

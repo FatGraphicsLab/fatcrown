@@ -23,8 +23,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\config.h" />
+    <ClInclude Include="..\..\..\src\core\error\error.h" />
+    <ClInclude Include="..\..\..\src\core\memory\allocator.h" />
+    <ClInclude Include="..\..\..\src\core\memory\types.h" />
     <ClInclude Include="..\..\..\src\core\platform.h" />
     <ClInclude Include="..\..\..\src\core\types.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\src\core\error\error.inl" />
+    <None Include="..\..\..\src\core\memory\temp_allocator.inl" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

@@ -1,8 +1,18 @@
+/*
+ * Copyright (C) 2021-2077 FATCROWN Team.
+ * License: https://github.com/FatGraphicsLab/fatcrown/blob/main/LICENSE
+ *
+ * @author   kasicass@gmail.com
+ * @date     2021-03-27
+ */
+
 #include "config.h"
+#include "core/error/error.inl"
 
 #if CROWN_PLATFORM_WINDOWS
 
 #define WIN32_LEAN_AND_MEAN
+#define NOMINMAX
 #include <Windows.h>
 
 #include <stdio.h>
@@ -19,6 +29,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrecInstance, LPSTR lpCmdLine
     }
 
     // TODO: WSAStartup()
+    CE_ASSERT(10 > 1, "hello");
 
     Sleep(5*1000);
 
