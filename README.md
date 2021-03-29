@@ -5,16 +5,24 @@
 
 
 
-## objective
+## Objective
 
 * be familiar with [stringray][3]
 * try some [RE ENGINE's rapid iteration][2] methods 
 
 
 
-## depends
+## Dependencies
 
 * [Livet][4], a WPF MVVM Infrastructure, for fatcrown editor.
+
+
+
+## History
+
+* bitsquid, is a new game engine created by Niklas Frykholm/Tobias Persson in 2009
+* stringray, bitsquid was acquired by Autodesk in 2014, renamed to stringray
+* [crown][1], an open-source game engine which script interfaces is same as bitsquid
 
 
 
