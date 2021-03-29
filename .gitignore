@@ -15,8 +15,7 @@ ipch
 *.cfg
 *.core
 
-Bin
-Bin32
-Bin64
-BinLib
-BinTemp
+bin32
+bin64
+binlib
+bintemp

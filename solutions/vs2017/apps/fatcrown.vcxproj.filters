@@ -12,18 +12,18 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\device\main_windows.cpp">
+    <ClCompile Include="..\..\..\src\device\main_windows.cpp">
       <Filter>source\device</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\src\config.h">
+    <ClInclude Include="..\..\..\src\config.h">
       <Filter>source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\core\platform.h">
+    <ClInclude Include="..\..\..\src\core\platform.h">
       <Filter>source\core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\core\types.h">
+    <ClInclude Include="..\..\..\src\core\types.h">
       <Filter>source\core</Filter>
     </ClInclude>
   </ItemGroup>

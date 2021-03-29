@@ -3,6 +3,12 @@
 
 ## 2021-03-27
 
+* re-arrange `[vs2017]` into `[solutions]`
+* we will support more platform in the future
+
+
+## 2021-03-27
+
 finished
 
 * `src/core/types.h`
