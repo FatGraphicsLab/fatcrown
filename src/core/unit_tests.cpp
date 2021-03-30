@@ -2,6 +2,7 @@
 
 #if CROWN_BUILD_UNIT_TESTS
 
+#include "core/containers/array.inl"
 #include "core/memory/memory.inl"
 #include "core/memory/temp_allocator.inl"
 
@@ -41,6 +42,23 @@ static void test_memory()
     memory_globals::shutdown();
 }
 
+static void test_array()
+{
+    memory_globals::init();
+    Allocator& a = default_allocator();
+
+    {
+        Array<int> v(a);
+
+        ENSURE(array::size(v) == 0);
+        array::push_back(v, 1);
+        ENSURE(array::size(v) == 1);
+        ENSURE(v[0] == 1);
+    }
+
+    memory_globals::shutdown();
+}
+
 #define RUN_TEST(name)      \
     do {                    \
         printf(#name "\n"); \
@@ -50,6 +68,7 @@ static void test_memory()
 int main_unit_tests()
 {
     RUN_TEST(test_memory);
+    RUN_TEST(test_array);
     return EXIT_SUCCESS;
 }
 

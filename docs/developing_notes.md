@@ -1,6 +1,20 @@
 # Developing Notes
 
 
+## 2021-03-31
+
+finished
+
+* `src/core/containers/array.inl`
+* `src/core/containers/types.h`
+* `src/core/functional/array.inl`
+* `src/core/containers/types.h`
+* `src/core/functional.h`
+* `src/core/functional.inl`
+* `src/core/murmur.cpp`
+* `src/core/murmur.h`
+
+
 ## 2021-03-30
 
 short objective
@@ -26,8 +40,8 @@ finished
 * `src/core/thread/mutex.cpp`
 * `src/core/thread/mutex.h`
 * `src/core/thread/scoped_mutex.inl`
-* `src/core/unit_test.cpp`
-* `src/core/unit_test.h`
+* `src/core/unit_tests.cpp`
+* `src/core/unit_tests.h`
 
 
 ## 2021-03-29

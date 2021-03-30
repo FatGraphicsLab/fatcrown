@@ -8,7 +8,7 @@
 
 #include "config.h"
 #include "core/error/error.inl"
-#include "core/unit_test.h"
+#include "core/unit_tests.h"
 
 #if CROWN_PLATFORM_WINDOWS
 
@@ -40,4 +40,3 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrecInstance, LPSTR lpCmdLine
 }
 
 #endif
-

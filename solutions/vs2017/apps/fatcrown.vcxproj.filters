@@ -19,19 +19,25 @@
     <Filter Include="source\core\thread">
       <UniqueIdentifier>{9112fb22-f95f-4b12-a88e-bd58574b25e7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\core\containers">
+      <UniqueIdentifier>{766150b6-6714-4a5a-8c57-55863d658224}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\src\device\main_windows.cpp">
       <Filter>source\device</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\src\core\unit_test.cpp">
-      <Filter>source\core</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\src\core\memory\globals.cpp">
       <Filter>source\core\memory</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\src\core\thread\mutex.cpp">
       <Filter>source\core\thread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\core\unit_tests.cpp">
+      <Filter>source\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\core\murmur.cpp">
+      <Filter>source\core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -56,14 +62,26 @@
     <ClInclude Include="..\..\..\src\core\memory\globals.h">
       <Filter>source\core\memory</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\core\unit_test.h">
-      <Filter>source\core</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\src\core\thread\mutex.h">
       <Filter>source\core\thread</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\src\core\thread\types.h">
       <Filter>source\core\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\core\unit_tests.h">
+      <Filter>source\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\core\containers\types.h">
+      <Filter>source\core\containers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\core\functional.h">
+      <Filter>source\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\core\murmur.h">
+      <Filter>source\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\core\pair.h">
+      <Filter>source\core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -78,6 +96,12 @@
     </None>
     <None Include="..\..\..\src\core\thread\scoped_mutex.inl">
       <Filter>source\core\thread</Filter>
+    </None>
+    <None Include="..\..\..\src\core\containers\array.inl">
+      <Filter>source\core\containers</Filter>
+    </None>
+    <None Include="..\..\..\src\core\functional.inl">
+      <Filter>source\core</Filter>
     </None>
   </ItemGroup>
 </Project>
