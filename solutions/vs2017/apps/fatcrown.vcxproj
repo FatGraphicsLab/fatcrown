@@ -19,18 +19,23 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\src\core\memory\globals.cpp" />
+    <ClCompile Include="..\..\..\src\core\unit_test.cpp" />
     <ClCompile Include="..\..\..\src\device\main_windows.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\config.h" />
     <ClInclude Include="..\..\..\src\core\error\error.h" />
     <ClInclude Include="..\..\..\src\core\memory\allocator.h" />
+    <ClInclude Include="..\..\..\src\core\memory\globals.h" />
     <ClInclude Include="..\..\..\src\core\memory\types.h" />
     <ClInclude Include="..\..\..\src\core\platform.h" />
     <ClInclude Include="..\..\..\src\core\types.h" />
+    <ClInclude Include="..\..\..\src\core\unit_test.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\src\core\error\error.inl" />
+    <None Include="..\..\..\src\core\memory\memory.inl" />
     <None Include="..\..\..\src\core\memory\temp_allocator.inl" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

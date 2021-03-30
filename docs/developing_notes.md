@@ -1,6 +1,18 @@
 # Developing Notes
 
 
+## 2021-03-30
+
+finished
+
+* `src/core/memory/globals.cpp`
+* `src/core/memory/globals.h`
+* `src/core/memory/memory.inl`
+* `src/core/memory/temp_allocator.inl`
+* `src/core/unit_test.cpp`
+* `src/core/unit_test.h`
+
+
 ## 2021-03-29
 
 solutions

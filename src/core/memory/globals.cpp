@@ -3,19 +3,25 @@
  * License: https://github.com/FatGraphicsLab/fatcrown/blob/main/LICENSE
  *
  * @author   kasicass@gmail.com
- * @date     2021-03-29
+ * @date     2021-03-30
  */
 
-#pragma once
-
-#include "core/types.h"
+#include "core/memory/globals.h"
 
 namespace crown
 {
 
-    namespace error
+namespace memory_globals
+{
+    void init(void)
     {
-        void abort(const char* format, ...);
-    } // namespace error
+
+    }
+
+    void shutdown(void)
+    {
+
+    }
+} // namespace memory_globals
 
 } // namespace crown

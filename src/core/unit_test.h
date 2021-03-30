@@ -3,11 +3,14 @@
  * License: https://github.com/FatGraphicsLab/fatcrown/blob/main/LICENSE
  *
  * @author   kasicass@gmail.com
- * @date     2021-03-27
+ * @date     2021-03-30
  */
 
-#include "core/platform.h"
+#pragma once
 
-#ifndef CROWN_BUILD_UNIT_TESTS
-#  define CROWN_BUILD_UNIT_TESTS 1
-#endif
+namespace crown
+{
+    // Runs all the unit tests.
+    int main_unit_tests();
+
+} // namespace crown

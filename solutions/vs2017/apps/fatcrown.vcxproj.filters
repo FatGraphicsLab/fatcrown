@@ -21,6 +21,12 @@
     <ClCompile Include="..\..\..\src\device\main_windows.cpp">
       <Filter>source\device</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\src\core\unit_test.cpp">
+      <Filter>source\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\core\memory\globals.cpp">
+      <Filter>source\core\memory</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\config.h">
@@ -41,6 +47,12 @@
     <ClInclude Include="..\..\..\src\core\error\error.h">
       <Filter>source\core\error</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\src\core\memory\globals.h">
+      <Filter>source\core\memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\core\unit_test.h">
+      <Filter>source\core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\src\core\memory\temp_allocator.inl">
@@ -48,6 +60,9 @@
     </None>
     <None Include="..\..\..\src\core\error\error.inl">
       <Filter>source\core\error</Filter>
+    </None>
+    <None Include="..\..\..\src\core\memory\memory.inl">
+      <Filter>source\core\memory</Filter>
     </None>
   </ItemGroup>
 </Project>

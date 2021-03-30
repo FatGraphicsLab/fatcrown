@@ -11,21 +11,21 @@
 namespace crown
 {
    
-struct Allocator;
+    struct Allocator;
 
-// Determines if a type is allocator aware.
-template <typename T>
-struct is_allocator_aware {
-    template <typename C>
-    static char test_fun(typename C::allocator_aware *);
+    // Determines if a type is allocator aware.
+    template <typename T>
+    struct is_allocator_aware {
+        template <typename C>
+        static char test_fun(typename C::allocator_aware *);
 
-    template <typename C>
-    static int test_fun(...);
+        template <typename C>
+        static int test_fun(...);
 
-    enum {
-        value = (sizeof(test_fun<T>(0)) == sizeof(char));
+        enum {
+            value = (sizeof(test_fun<T>(0)) == sizeof(char));
+        };
     };
-};
 
 } // namespace crown
 
