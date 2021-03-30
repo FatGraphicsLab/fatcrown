@@ -82,7 +82,7 @@ inline T clamp(T val, T mmin, T mmax)
 #  define CE_LIKELY(x)                (x)
 #  define CE_UNLIKELY(x)              (x)
 #  define CE_UNREACHABLE()
-#  define CE_ALIGN_DECL(align_, decl) __declspec (align(align_)) decl
+#  define CE_ALIGN_DECL(align_, decl) __declspec(align(align_)) decl
 #  define CE_THREAD                   __declspec(thread)
 #else
 #  error "Unknown compiler"

@@ -3,12 +3,29 @@
 
 ## 2021-03-30
 
+short objective
+
+* see unittest runs~ (DONE)
+
+core/memory
+
+* HeapAllocator, ScratchAllocator in `memory/globals.cpp` are basic allocator.
+* ScratchAllocator is mainly used by TempAllocator.
+
+core/thread
+
+* 多线程基础设施
+* ConditionVariable, Mutex, ScopedMutex, Semaphore, Thread
+
 finished
 
 * `src/core/memory/globals.cpp`
 * `src/core/memory/globals.h`
 * `src/core/memory/memory.inl`
 * `src/core/memory/temp_allocator.inl`
+* `src/core/thread/mutex.cpp`
+* `src/core/thread/mutex.h`
+* `src/core/thread/scoped_mutex.inl`
 * `src/core/unit_test.cpp`
 * `src/core/unit_test.h`
 
@@ -36,7 +53,7 @@ finished
 
 finished
 
-* `src/core/types.h`
+* `src/core/types.h`, s8/u8/s32/u32等等，以及clamp/max/min等模板函数
 
 types.h
 

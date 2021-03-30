@@ -16,6 +16,9 @@
     <Filter Include="source\core\memory">
       <UniqueIdentifier>{db0cb22d-74f8-409b-b79d-fc7a5993dc65}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\core\thread">
+      <UniqueIdentifier>{9112fb22-f95f-4b12-a88e-bd58574b25e7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\src\device\main_windows.cpp">
@@ -26,6 +29,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\src\core\memory\globals.cpp">
       <Filter>source\core\memory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\core\thread\mutex.cpp">
+      <Filter>source\core\thread</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -53,6 +59,12 @@
     <ClInclude Include="..\..\..\src\core\unit_test.h">
       <Filter>source\core</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\src\core\thread\mutex.h">
+      <Filter>source\core\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\core\thread\types.h">
+      <Filter>source\core\thread</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\src\core\memory\temp_allocator.inl">
@@ -63,6 +75,9 @@
     </None>
     <None Include="..\..\..\src\core\memory\memory.inl">
       <Filter>source\core\memory</Filter>
+    </None>
+    <None Include="..\..\..\src\core\thread\scoped_mutex.inl">
+      <Filter>source\core\thread</Filter>
     </None>
   </ItemGroup>
 </Project>

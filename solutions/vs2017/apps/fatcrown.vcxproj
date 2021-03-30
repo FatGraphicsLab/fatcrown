@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\src\core\memory\globals.cpp" />
+    <ClCompile Include="..\..\..\src\core\thread\mutex.cpp" />
     <ClCompile Include="..\..\..\src\core\unit_test.cpp" />
     <ClCompile Include="..\..\..\src\device\main_windows.cpp" />
   </ItemGroup>
@@ -30,6 +31,8 @@
     <ClInclude Include="..\..\..\src\core\memory\globals.h" />
     <ClInclude Include="..\..\..\src\core\memory\types.h" />
     <ClInclude Include="..\..\..\src\core\platform.h" />
+    <ClInclude Include="..\..\..\src\core\thread\mutex.h" />
+    <ClInclude Include="..\..\..\src\core\thread\types.h" />
     <ClInclude Include="..\..\..\src\core\types.h" />
     <ClInclude Include="..\..\..\src\core\unit_test.h" />
   </ItemGroup>
@@ -37,6 +40,7 @@
     <None Include="..\..\..\src\core\error\error.inl" />
     <None Include="..\..\..\src\core\memory\memory.inl" />
     <None Include="..\..\..\src\core\memory\temp_allocator.inl" />
+    <None Include="..\..\..\src\core\thread\scoped_mutex.inl" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
