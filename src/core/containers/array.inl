@@ -128,7 +128,7 @@ namespace crown
                 return;
 
             if (capacity < a._size)
-                resize(a, capacity);
+                a._size = capacity;
 
             if (capacity > 0)
             {
@@ -156,7 +156,7 @@ namespace crown
         template <typename T>
         inline void shrink_to_fit(Array<T>& a)
         {
-            resize(a, a._size);
+            set_capacity(a, a._size);
         }
 
         template <typename T>
@@ -180,7 +180,7 @@ namespace crown
         template <typename T>
         inline u32 push(Array<T>& a, const T* items, u32 count)
         {
-            if (a._capacity <= a._size + count)
+            if (a._capacity < a._size + count)
                 grow(a, a._size + count);
 
             memcpy(&a._data[a._size], items, sizeof(T) * count);

@@ -3,6 +3,10 @@
 
 ## 2021-03-31
 
+unittest
+
+* full unittest for `containers/array.inl`
+
 project rearrangement objective
 
 * put unittest code to seperate project `[utils/unittest]`
