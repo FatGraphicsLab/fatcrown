@@ -5,6 +5,14 @@ VisualStudioVersion = 15.0.28307.1433
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "fatcrown", "apps\fatcrown.vcxproj", "{8F189920-6D99-4112-AE7E-5C77A1D27657}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01-engine", "01-engine", "{3A4F97E2-AE90-4ABE-AE3D-D1BA9407FA6A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02-utils", "02-utils", "{F8C94DB3-2DAD-4DB0-AE31-6CD6B834C895}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "unittest", "apps\unittest.vcxproj", "{6C99477C-1626-49CB-BA8A-549C8B58DAFC}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libcrown", "apps\libcrown.vcxproj", "{5E2842A5-37D6-45F1-8D8E-0B7608BCD4C6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,9 +29,30 @@ Global
 		{8F189920-6D99-4112-AE7E-5C77A1D27657}.Release|x64.Build.0 = Release|x64
 		{8F189920-6D99-4112-AE7E-5C77A1D27657}.Release|x86.ActiveCfg = Release|Win32
 		{8F189920-6D99-4112-AE7E-5C77A1D27657}.Release|x86.Build.0 = Release|Win32
+		{6C99477C-1626-49CB-BA8A-549C8B58DAFC}.Debug|x64.ActiveCfg = Debug|x64
+		{6C99477C-1626-49CB-BA8A-549C8B58DAFC}.Debug|x64.Build.0 = Debug|x64
+		{6C99477C-1626-49CB-BA8A-549C8B58DAFC}.Debug|x86.ActiveCfg = Debug|Win32
+		{6C99477C-1626-49CB-BA8A-549C8B58DAFC}.Debug|x86.Build.0 = Debug|Win32
+		{6C99477C-1626-49CB-BA8A-549C8B58DAFC}.Release|x64.ActiveCfg = Release|x64
+		{6C99477C-1626-49CB-BA8A-549C8B58DAFC}.Release|x64.Build.0 = Release|x64
+		{6C99477C-1626-49CB-BA8A-549C8B58DAFC}.Release|x86.ActiveCfg = Release|Win32
+		{6C99477C-1626-49CB-BA8A-549C8B58DAFC}.Release|x86.Build.0 = Release|Win32
+		{5E2842A5-37D6-45F1-8D8E-0B7608BCD4C6}.Debug|x64.ActiveCfg = Debug|x64
+		{5E2842A5-37D6-45F1-8D8E-0B7608BCD4C6}.Debug|x64.Build.0 = Debug|x64
+		{5E2842A5-37D6-45F1-8D8E-0B7608BCD4C6}.Debug|x86.ActiveCfg = Debug|Win32
+		{5E2842A5-37D6-45F1-8D8E-0B7608BCD4C6}.Debug|x86.Build.0 = Debug|Win32
+		{5E2842A5-37D6-45F1-8D8E-0B7608BCD4C6}.Release|x64.ActiveCfg = Release|x64
+		{5E2842A5-37D6-45F1-8D8E-0B7608BCD4C6}.Release|x64.Build.0 = Release|x64
+		{5E2842A5-37D6-45F1-8D8E-0B7608BCD4C6}.Release|x86.ActiveCfg = Release|Win32
+		{5E2842A5-37D6-45F1-8D8E-0B7608BCD4C6}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8F189920-6D99-4112-AE7E-5C77A1D27657} = {3A4F97E2-AE90-4ABE-AE3D-D1BA9407FA6A}
+		{6C99477C-1626-49CB-BA8A-549C8B58DAFC} = {F8C94DB3-2DAD-4DB0-AE31-6CD6B834C895}
+		{5E2842A5-37D6-45F1-8D8E-0B7608BCD4C6} = {3A4F97E2-AE90-4ABE-AE3D-D1BA9407FA6A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7CCBEC69-7EE4-43DF-8227-F873C9821549}

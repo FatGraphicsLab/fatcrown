@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="source">
+      <UniqueIdentifier>{9e30e700-6e96-41db-b43d-63163a4808ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\core">
+      <UniqueIdentifier>{c2faf2f8-8709-428a-906c-55eea0bbb2ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\device">
+      <UniqueIdentifier>{06dfc7af-cfab-4966-9206-76d9cd6ab2c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\core\containers">
+      <UniqueIdentifier>{42aafca1-23c6-4125-8e8c-e156b7ff98bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\core\error">
+      <UniqueIdentifier>{b8fa2af8-92c5-48c6-bbdb-280eae5ae7df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\core\memory">
+      <UniqueIdentifier>{edab98c8-7f23-4bb4-9e6b-f145fb1d2b80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\core\thread">
+      <UniqueIdentifier>{c22af36b-c95a-4089-8307-1112717cb112}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\src\config.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\core\containers\types.h">
+      <Filter>source\core\containers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\core\error\error.h">
+      <Filter>source\core\error</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\core\memory\allocator.h">
+      <Filter>source\core\memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\core\memory\globals.h">
+      <Filter>source\core\memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\core\memory\types.h">
+      <Filter>source\core\memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\core\thread\mutex.h">
+      <Filter>source\core\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\core\thread\types.h">
+      <Filter>source\core\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\core\functional.h">
+      <Filter>source\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\core\murmur.h">
+      <Filter>source\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\core\pair.h">
+      <Filter>source\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\core\platform.h">
+      <Filter>source\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\core\types.h">
+      <Filter>source\core</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\src\core\containers\array.inl">
+      <Filter>source\core\containers</Filter>
+    </None>
+    <None Include="..\..\..\src\core\error\error.inl">
+      <Filter>source\core\error</Filter>
+    </None>
+    <None Include="..\..\..\src\core\memory\memory.inl">
+      <Filter>source\core\memory</Filter>
+    </None>
+    <None Include="..\..\..\src\core\memory\temp_allocator.inl">
+      <Filter>source\core\memory</Filter>
+    </None>
+    <None Include="..\..\..\src\core\thread\scoped_mutex.inl">
+      <Filter>source\core\thread</Filter>
+    </None>
+    <None Include="..\..\..\src\core\functional.inl">
+      <Filter>source\core</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\src\core\memory\globals.cpp">
+      <Filter>source\core\memory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\core\thread\mutex.cpp">
+      <Filter>source\core\thread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\core\murmur.cpp">
+      <Filter>source\core</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

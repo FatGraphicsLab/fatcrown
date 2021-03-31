@@ -3,6 +3,19 @@
 
 ## 2021-03-31
 
+project rearrangement objective
+
+* put unittest code to seperate project `[utils/unittest]`
+* `fatcrown` and `unittest` both depends on `libcrown`
+* so make all engine runtime code to a seperate .lib
+
+project rearrangement
+
+* libcrown, the engine runtime lib
+* fatcrown, launcher of libcrown
+* unittest, unittest for libengine's core functionality
+* fateditor, game editor for fatcrown
+
 finished
 
 * `src/core/containers/array.inl`

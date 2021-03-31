@@ -7,7 +7,3 @@
  */
 
 #include "core/platform.h"
-
-#ifndef CROWN_BUILD_UNIT_TESTS
-#  define CROWN_BUILD_UNIT_TESTS 1
-#endif
