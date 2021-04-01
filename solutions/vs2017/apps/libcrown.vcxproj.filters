@@ -22,6 +22,9 @@
     <Filter Include="source\core\thread">
       <UniqueIdentifier>{c22af36b-c95a-4089-8307-1112717cb112}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\core\strings">
+      <UniqueIdentifier>{f7d4a7e1-d75f-48ed-b90d-920dc122f4ae}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\config.h">
@@ -63,6 +66,12 @@
     <ClInclude Include="..\..\..\src\core\types.h">
       <Filter>source\core</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\src\core\strings\string_stream.h">
+      <Filter>source\core\strings</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\core\strings\types.h">
+      <Filter>source\core\strings</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\src\core\containers\array.inl">
@@ -82,6 +91,12 @@
     </None>
     <None Include="..\..\..\src\core\functional.inl">
       <Filter>source\core</Filter>
+    </None>
+    <None Include="..\..\..\src\core\strings\string_stream.inl">
+      <Filter>source\core\strings</Filter>
+    </None>
+    <None Include="..\..\..\src\core\strings\string.inl">
+      <Filter>source\core\strings</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

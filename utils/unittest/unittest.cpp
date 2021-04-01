@@ -9,6 +9,7 @@
 #include "config.h"
 #include "core/containers/array.inl"
 #include "core/memory/memory.inl"
+#include "core/strings/string.inl"
 #include "core/memory/temp_allocator.inl"
 
 #include <stdlib.h> // EXIT_SUCCESS, EXIT_FAILURE
@@ -17,19 +18,19 @@
 #undef CE_ASSERT
 #undef CE_ENSURE
 #undef CE_FATAL
-#define ENSURE(condition)                                   \
-    do                                                      \
-    {                                                       \
-        if (!(condition))                                   \
-        {                                                   \
-            printf("Assertion failed: '%s' in %s:%d\n\n"    \
-                , #condition                                \
-                , __FILE__                                  \
-                , __LINE__                                  \
-                );                                          \
-            exit(EXIT_FAILURE);                             \
-        }                                                   \
-    }                                                       \
+#define ENSURE(condition)                       \
+    do                                          \
+    {                                           \
+        if (!(condition))                       \
+        {                                       \
+            printf("FAILED: '%s' in %s:%d\n"    \
+                , #condition                    \
+                , __FILE__                      \
+                , __LINE__                      \
+                );                              \
+            exit(EXIT_FAILURE);                 \
+        }                                       \
+    }                                           \
     while (0)
 
 namespace crown
@@ -276,6 +277,91 @@ namespace crown
         memory_globals::shutdown();
     }
 
+    static void test_string_inline()
+    {
+        // snprintf()
+        {
+            char s[128];
+            snprintf(s, 128, "Hello %d %s", 10, "Boy!");
+            ENSURE(strcmp(s, "Hello 10 Boy!") == 0);
+        }
+
+        // strlen32()
+        {
+            ENSURE(strlen32("Hello!") == 6);
+            ENSURE(strlen32("") == 0);
+        }
+
+        // skip_spaces()
+        {
+            char s1[] = " \tHello Boy!\tCoool!";
+            const char* s2;
+            
+            s2 = skip_spaces(s1);
+            ENSURE(*s2 == 'H');
+            
+            while (!isspace(*s2)) ++s2;
+            s2 = skip_spaces(s2);
+            ENSURE(*s2 == 'B');
+
+            while (!isspace(*s2)) ++s2;
+            s2 = skip_spaces(s2);
+            ENSURE(*s2 == 'C');
+        }
+
+        // skip_block()
+        {
+            const char* s;
+
+            s = skip_block("[Hello]Baby!", '[', ']');
+            ENSURE(*s == 'B');
+
+            s = skip_block("[Hello Baby!", '[', ']');
+            ENSURE(s == NULL);
+
+            s = skip_block("[Hello[Baby!]Woo!]NoMan!", '[', ']');
+            ENSURE(*s == 'N');
+        }
+
+        // strnl()
+        {
+            const char* s;
+
+            s = strnl("Hello!\nBoy!");
+            ENSURE(*s == 'B');
+
+            s = strnl("Hello!");
+            ENSURE(s[-1] == '!');
+        }
+
+        // wildcmp()
+        {
+            ENSURE(wildcmp("a.jpg", "b.jpg") == 0);
+            ENSURE(wildcmp("?.jpg", "b.jpg") == 1);
+            ENSURE(wildcmp("*.jpg", "Hello.jpg") == 1);
+            ENSURE(wildcmp("*l*.jpg", "Hello.jpg") == 1);
+            ENSURE(wildcmp("*lo.jpg", "Hello.jpg") == 1);
+            ENSURE(wildcmp("*llo.jpg", "Hello.jpg") == 1);
+            ENSURE(wildcmp("*?.jpg", "Hello.jpg") == 1);
+            ENSURE(wildcmp("Hello.*", "Hello.jpg") == 1);
+            ENSURE(wildcmp("H*llo.*", "Hello.jpg") == 1);
+            ENSURE(wildcmp("He*o.j?g", "Hello.jpg") == 1);
+            ENSURE(wildcmp("H*.jpg", "Hello.jpa") == 0);
+        }
+
+        // str_has_prefix()
+        {
+            ENSURE(str_has_prefix("Hello!Boy!", "Hello!") == true);
+            ENSURE(str_has_prefix("Hello!Boy!", "Abc!") == false);
+        }
+
+        // str_has_suffix()
+        {
+            ENSURE(str_has_suffix("Hello!Boy!", "Boy!") == true);
+            ENSURE(str_has_suffix("Hello!Boy!", "Goy!") == false);
+        }
+    }
+
 #define RUN_TEST(name)      \
     do {                    \
         name();             \
@@ -283,9 +369,9 @@ namespace crown
 
     int main_unit_tests()
     {
-        printf("\n");
         RUN_TEST(test_memory);
         RUN_TEST(test_array);
+        RUN_TEST(test_string_inline);
         return EXIT_SUCCESS;
     }
 

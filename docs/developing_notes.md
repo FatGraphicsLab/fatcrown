@@ -1,6 +1,21 @@
 # Developing Notes
 
 
+## 2021-04-01
+
+core/error/callstack.h
+
+* depends on `core/strings/string_stream.h`
+* depends on `core/memory/temp_allocator.inl`
+
+finished
+
+* `core/strings/string_stream.h`
+* `core/strings/string_stream.inl`
+* `core/strings/string.inl`
+* `core/strings/types.inl`
+
+
 ## 2021-03-31
 
 unittest
