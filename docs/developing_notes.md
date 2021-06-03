@@ -1,6 +1,27 @@
 # Developing Notes
 
 
+
+## OBJECTIVES
+
+* SSAO
+  * https://ourmachinery.com/post/beta-2021-5/#screen-space-ambient-occlusion
+
+
+
+## 2021-06-03
+
+core/strings/string_stream.inl
+
+* depends on `core/containers/array.inl`
+
+finished
+
+* `core/strings/string_stream.h`
+* `core/strings/string_stream.inl`
+
+
+
 ## 2021-04-01
 
 core/error/callstack.h
@@ -10,10 +31,9 @@ core/error/callstack.h
 
 finished
 
-* `core/strings/string_stream.h`
-* `core/strings/string_stream.inl`
 * `core/strings/string.inl`
-* `core/strings/types.inl`
+* `core/strings/types.h`
+
 
 
 ## 2021-03-31
@@ -47,6 +67,7 @@ finished
 * `src/core/murmur.h`
 
 
+
 ## 2021-03-30
 
 short objective
@@ -74,6 +95,7 @@ finished
 * `src/core/thread/scoped_mutex.inl`
 * `src/core/unit_tests.cpp`
 * `src/core/unit_tests.h`
+
 
 
 ## 2021-03-29
@@ -104,7 +126,7 @@ finished
 types.h
 
 * 每个模块目录下都会有一个 `types.h` 文件，定义了模块相关的数据
-* 模块之间的依赖，尽量只需要 include 对应的 `types.h` 文件
+* 模块之间的依赖，只需要 include 对应的 `types.h` 文件
 
 
 ## 2021-03-20

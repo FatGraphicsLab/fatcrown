@@ -10,10 +10,12 @@
 #include "core/containers/array.inl"
 #include "core/memory/memory.inl"
 #include "core/strings/string.inl"
+#include "core/strings/string_stream.inl"
 #include "core/memory/temp_allocator.inl"
 
 #include <stdlib.h> // EXIT_SUCCESS, EXIT_FAILURE
 #include <stdio.h>
+#include <string.h>
 
 #undef CE_ASSERT
 #undef CE_ENSURE
@@ -47,6 +49,8 @@ namespace crown
 
         memory_globals::shutdown();
     }
+
+    // TODO(kasicass): unittest for temp_allocator
 
     static void test_array()
     {
@@ -362,6 +366,69 @@ namespace crown
         }
     }
 
+    static void test_string_stream()
+    {
+        memory_globals::init();
+
+        // char
+        {
+            TempAllocator1024 ta;
+            StringStream ss(ta);
+            ss << 'B' << 'a' << 'b' << 'y';
+            ENSURE(strcmp(string_stream::c_str(ss), "Baby") == 0);
+        }
+
+        // const char*
+        {
+            TempAllocator1024 ta;
+            StringStream ss(ta);
+            ss << "Baby!";
+            ENSURE(strcmp(string_stream::c_str(ss), "Baby!") == 0);
+        }
+
+        // s16/u16
+        {
+            TempAllocator1024 ta;
+            StringStream ss(ta);
+            s16 a = -10;
+            u16 b = 24;
+            ss << a << b;
+            ENSURE(strcmp(string_stream::c_str(ss), "-1024") == 0);
+        }
+
+        // s32/u32
+        {
+            TempAllocator1024 ta;
+            StringStream ss(ta);
+            s32 a = -65537;
+            u32 b = 65538;
+            ss << a << b;
+            ENSURE(strcmp(string_stream::c_str(ss), "-6553765538") == 0);
+        }
+
+        // s64/u64
+        {
+            TempAllocator1024 ta;
+            StringStream ss(ta);
+            s64 a = -655370;
+            u64 b = 655380;
+            ss << a << b;
+            ENSURE(strcmp(string_stream::c_str(ss), "-655370655380") == 0);
+        }
+
+        // f32/f64
+        {
+            TempAllocator1024 ta;
+            StringStream ss(ta);
+            f32 a = 1.2f;
+            f64 b = -6.466;
+            ss << a << b;
+            ENSURE(strcmp(string_stream::c_str(ss), "1.2-6.466") == 0);
+        }
+
+        memory_globals::shutdown();
+    }
+
 #define RUN_TEST(name)      \
     do {                    \
         name();             \
@@ -372,6 +439,7 @@ namespace crown
         RUN_TEST(test_memory);
         RUN_TEST(test_array);
         RUN_TEST(test_string_inline);
+        RUN_TEST(test_string_stream);
         return EXIT_SUCCESS;
     }
 
