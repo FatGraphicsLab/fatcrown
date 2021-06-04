@@ -9,6 +9,19 @@
 
 
 
+## 2021-06-04
+
+ALLOCATOR_AWARE
+
+* only used for `hash_map.inl` / `hash_set.inl`
+* crown::construct of `memory.inl` is only used for `hash_map.inl` / `hash_set.inl`
+
+finished
+
+* `core/containers/pair.h`
+* `core/containers/pair.inl`
+
+
 ## 2021-06-03
 
 core/strings/string_stream.inl

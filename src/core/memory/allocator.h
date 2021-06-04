@@ -42,7 +42,7 @@ namespace crown
         virtual u32 total_allocated() = 0;
 
         // Default memory alignment in bytes.
-        static const u32 DEFAULT_ALIGN = 4;
+        static const u32 DEFAULT_ALIGN = 8;
         static const u32 SIZE_NOT_TRACKED = 0xffffffffu;
     };
 

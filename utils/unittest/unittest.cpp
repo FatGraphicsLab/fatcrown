@@ -8,10 +8,11 @@
 
 #include "config.h"
 #include "core/containers/array.inl"
+#include "core/containers/pair.inl"
 #include "core/memory/memory.inl"
+#include "core/memory/temp_allocator.inl"
 #include "core/strings/string.inl"
 #include "core/strings/string_stream.inl"
-#include "core/memory/temp_allocator.inl"
 
 #include <stdlib.h> // EXIT_SUCCESS, EXIT_FAILURE
 #include <stdio.h>
@@ -37,8 +38,7 @@
 
 namespace crown
 {
-
-    static void test_memory()
+    static void test_default_allocator()
     {
         memory_globals::init();
         Allocator& a = default_allocator();
@@ -51,6 +51,43 @@ namespace crown
     }
 
     // TODO(kasicass): unittest for temp_allocator
+
+    static void test_new_delete()
+    {
+#if 0
+        class MyClass
+        {
+        public:
+            MyClass() {}
+            ~MyClass() {}
+        };
+
+        class MyClassAllocatorAware
+        {
+        public:
+            ALLOCATOR_AWARE;
+
+            MyClassAllocatorAware(Allocator& a) : _allocator(a) {}
+            ~MyClassAllocatorAware() {}
+
+        private:
+            Allocator& _allocator;
+        };
+
+        memory_globals::init();
+        Allocator& a = default_allocator();
+
+        MyClass *obj1 = CE_NEW(a, MyClass);
+        ENSURE(a.allocated_size(obj1) >= sizeof(MyClass));
+        CE_DELETE(a, obj1);
+
+        MyClassAllocatorAware *obj2 = CE_NEW(a, MyClassAllocatorAware)(a);
+        ENSURE(a.allocated_size(obj2) >= sizeof(MyClassAllocatorAware));
+        CE_DELETE(a, obj2);
+
+        memory_globals::shutdown();
+#endif
+    }
 
     static void test_array()
     {
@@ -281,6 +318,138 @@ namespace crown
         memory_globals::shutdown();
     }
 
+    static void test_containers_pair()
+    {
+        memory_globals::init();
+        Allocator& a = default_allocator();
+
+        struct NoAware
+        {
+            int _value;
+
+            NoAware() {}
+            NoAware(int v) : _value(v) {}
+            ~NoAware() {}
+
+            int GetValue() const { return _value; }
+        };
+
+        struct HasAware
+        {
+            ALLOCATOR_AWARE;
+
+            Allocator& _allocator;
+            int _value;
+
+            HasAware(Allocator& a) : _allocator(a) {}
+            ~HasAware() {}
+
+            int GetValue() const { return _value; }
+            void SetValue(int v) { _value = v; }
+        };
+
+        // Pair<T1, T2, 0, 0>
+        {
+            NoAware no1(1);
+            NoAware no2(2);
+            NoAware no3(3);
+            NoAware no4(4);
+
+            PAIR(NoAware, NoAware) pair1(no1, no2);
+            ENSURE(pair1.first.GetValue() == 1);
+            ENSURE(pair1.second.GetValue() == 2);
+
+            PAIR(NoAware, NoAware) pair2(no3, no4);
+            ENSURE(pair2.first.GetValue() == 3);
+            ENSURE(pair2.second.GetValue() == 4);
+
+            swap(pair1, pair2);
+            ENSURE(pair1.first.GetValue() == 3);
+            ENSURE(pair1.second.GetValue() == 4);
+            ENSURE(pair2.first.GetValue() == 1);
+            ENSURE(pair2.second.GetValue() == 2);
+        }
+
+        // Pair<T1, T2, 1, 0>
+        {
+            HasAware has1(a); has1.SetValue(1);
+            NoAware no2(2);
+            HasAware has3(a); has3.SetValue(3);
+            NoAware no4(4);
+
+            PAIR(HasAware, NoAware) pair1(has1, no2);
+            ENSURE(pair1.first.GetValue() == 1);
+            ENSURE(pair1.second.GetValue() == 2);
+
+            PAIR(HasAware, NoAware) pair2(has3, no4);
+            ENSURE(pair2.first.GetValue() == 3);
+            ENSURE(pair2.second.GetValue() == 4);
+
+            swap(pair1, pair2);
+            ENSURE(pair1.first.GetValue() == 3);
+            ENSURE(pair1.second.GetValue() == 4);
+            ENSURE(pair2.first.GetValue() == 1);
+            ENSURE(pair2.second.GetValue() == 2);
+        }
+
+        // Pair<T1, T2, 0, 1>
+        {
+            NoAware no1(1);
+            HasAware has2(a); has2.SetValue(2);
+            NoAware no3(3);
+            HasAware has4(a); has4.SetValue(4);
+
+            PAIR(NoAware, HasAware) pair1(no1, has2);
+            ENSURE(pair1.first.GetValue() == 1);
+            ENSURE(pair1.second.GetValue() == 2);
+
+            PAIR(NoAware, HasAware) pair2(no3, has4);
+            ENSURE(pair2.first.GetValue() == 3);
+            ENSURE(pair2.second.GetValue() == 4);
+
+            swap(pair1, pair2);
+            ENSURE(pair1.first.GetValue() == 3);
+            ENSURE(pair1.second.GetValue() == 4);
+            ENSURE(pair2.first.GetValue() == 1);
+            ENSURE(pair2.second.GetValue() == 2);
+        }
+
+        // Pair<T1, T2, 1, 1>
+        {
+            HasAware has1(a); has1.SetValue(1);
+            HasAware has2(a); has2.SetValue(2);
+            HasAware has3(a); has3.SetValue(3);
+            HasAware has4(a); has4.SetValue(4);
+
+            PAIR(HasAware, HasAware) pair1(has1, has2);
+            ENSURE(pair1.first.GetValue() == 1);
+            ENSURE(pair1.second.GetValue() == 2);
+
+            PAIR(HasAware, HasAware) pair2(has3, has4);
+            ENSURE(pair2.first.GetValue() == 3);
+            ENSURE(pair2.second.GetValue() == 4);
+
+            swap(pair1, pair2);
+            ENSURE(pair1.first.GetValue() == 3);
+            ENSURE(pair1.second.GetValue() == 4);
+            ENSURE(pair2.first.GetValue() == 1);
+            ENSURE(pair2.second.GetValue() == 2);
+        }
+
+        // Pair<T1, T2, 1, 0>::Pair(Allocator& a)
+        // Pair<T1, T2, 1, 1>::Pair(Allocator& a)
+        {
+            PAIR(HasAware, NoAware) pair1(a);
+            ENSURE(&pair1.first._allocator == &a);
+
+            PAIR(HasAware, HasAware) pair2(a);
+            ENSURE(&pair2.first._allocator == &a);
+            ENSURE(&pair2.second._allocator == &a);
+        }
+
+        memory_globals::shutdown();
+    }
+
     static void test_string_inline()
     {
         // snprintf()
@@ -436,8 +605,10 @@ namespace crown
 
     int main_unit_tests()
     {
-        RUN_TEST(test_memory);
+        RUN_TEST(test_default_allocator);
+        RUN_TEST(test_new_delete);
         RUN_TEST(test_array);
+        RUN_TEST(test_containers_pair);
         RUN_TEST(test_string_inline);
         RUN_TEST(test_string_stream);
         return EXIT_SUCCESS;

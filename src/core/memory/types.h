@@ -10,7 +10,6 @@
 
 namespace crown
 {
-   
     struct Allocator;
 
     // Determines if a type is allocator aware.
@@ -23,7 +22,7 @@ namespace crown
         static int test_fun(...);
 
         enum {
-            value = (sizeof(test_fun<T>(0)) == sizeof(char));
+            value = (sizeof(test_fun<T>(0)) == sizeof(char))
         };
     };
 

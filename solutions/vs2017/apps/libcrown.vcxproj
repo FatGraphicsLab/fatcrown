@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\config.h" />
+    <ClInclude Include="..\..\..\src\core\containers\pair.h" />
     <ClInclude Include="..\..\..\src\core\containers\types.h" />
     <ClInclude Include="..\..\..\src\core\error\error.h" />
     <ClInclude Include="..\..\..\src\core\functional.h" />
@@ -27,7 +28,6 @@
     <ClInclude Include="..\..\..\src\core\memory\globals.h" />
     <ClInclude Include="..\..\..\src\core\memory\types.h" />
     <ClInclude Include="..\..\..\src\core\murmur.h" />
-    <ClInclude Include="..\..\..\src\core\pair.h" />
     <ClInclude Include="..\..\..\src\core\platform.h" />
     <ClInclude Include="..\..\..\src\core\strings\string_stream.h" />
     <ClInclude Include="..\..\..\src\core\strings\types.h" />
@@ -37,6 +37,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\src\core\containers\array.inl" />
+    <None Include="..\..\..\src\core\containers\pair.inl" />
     <None Include="..\..\..\src\core\error\error.inl" />
     <None Include="..\..\..\src\core\functional.inl" />
     <None Include="..\..\..\src\core\memory\memory.inl" />
