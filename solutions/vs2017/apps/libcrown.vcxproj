@@ -29,6 +29,7 @@
     <ClInclude Include="..\..\..\src\core\memory\types.h" />
     <ClInclude Include="..\..\..\src\core\murmur.h" />
     <ClInclude Include="..\..\..\src\core\platform.h" />
+    <ClInclude Include="..\..\..\src\core\strings\string_id.h" />
     <ClInclude Include="..\..\..\src\core\strings\string_stream.h" />
     <ClInclude Include="..\..\..\src\core\strings\types.h" />
     <ClInclude Include="..\..\..\src\core\thread\mutex.h" />
@@ -43,12 +44,14 @@
     <None Include="..\..\..\src\core\memory\memory.inl" />
     <None Include="..\..\..\src\core\memory\temp_allocator.inl" />
     <None Include="..\..\..\src\core\strings\string.inl" />
+    <None Include="..\..\..\src\core\strings\string_id.inl" />
     <None Include="..\..\..\src\core\strings\string_stream.inl" />
     <None Include="..\..\..\src\core\thread\scoped_mutex.inl" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\src\core\memory\globals.cpp" />
     <ClCompile Include="..\..\..\src\core\murmur.cpp" />
+    <ClCompile Include="..\..\..\src\core\strings\string_id.cpp" />
     <ClCompile Include="..\..\..\src\core\thread\mutex.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

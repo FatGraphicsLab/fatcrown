@@ -6,6 +6,24 @@
 
 * SSAO
   * https://ourmachinery.com/post/beta-2021-5/#screen-space-ambient-occlusion
+* debug-build unittest works~
+  * depends on `crown::error::abort()`
+
+
+
+## 2021-06-05
+
+core/strings/string_id.h
+
+* 表示 hashed string，方便做 ==, !=, <
+* 假设 hash function 不会重复的情况下，对于大量的字符串，保存 hashed value 更节约空间
+  * 比如："assets/monsters/3155/a.model" 保存为 StringId32 只需要 4-bytes
+
+finished
+
+* `core/strings/string_id.cpp`
+* `core/strings/string_id.h`
+* `core/strings/string_id.inl`
 
 
 
@@ -20,6 +38,7 @@ finished
 
 * `core/containers/pair.h`
 * `core/containers/pair.inl`
+
 
 
 ## 2021-06-03

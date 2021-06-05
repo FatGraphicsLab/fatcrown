@@ -11,6 +11,7 @@
 namespace crown
 {
     // MurmurHash2, by Austin Appleby
+    // https://github.com/aappleby/smhasher/blob/master/src/MurmurHash2.cpp
     //
     // This code makes a few assumptions about how your machine behaves
     //

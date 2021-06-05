@@ -72,6 +72,9 @@
     <ClInclude Include="..\..\..\src\core\containers\pair.h">
       <Filter>source\core\containers</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\src\core\strings\string_id.h">
+      <Filter>source\core\strings</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\src\core\containers\array.inl">
@@ -101,6 +104,9 @@
     <None Include="..\..\..\src\core\containers\pair.inl">
       <Filter>source\core\containers</Filter>
     </None>
+    <None Include="..\..\..\src\core\strings\string_id.inl">
+      <Filter>source\core\strings</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\src\core\memory\globals.cpp">
@@ -111,6 +117,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\src\core\murmur.cpp">
       <Filter>source\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\core\strings\string_id.cpp">
+      <Filter>source\core\strings</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

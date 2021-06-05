@@ -11,7 +11,9 @@
 #include "core/containers/pair.inl"
 #include "core/memory/memory.inl"
 #include "core/memory/temp_allocator.inl"
+#include "core/murmur.h"
 #include "core/strings/string.inl"
+#include "core/strings/string_id.inl"
 #include "core/strings/string_stream.inl"
 
 #include <stdlib.h> // EXIT_SUCCESS, EXIT_FAILURE
@@ -450,6 +452,84 @@ namespace crown
         memory_globals::shutdown();
     }
 
+    static void test_murmur_hash()
+    {
+        // murmur32()
+        {
+            u32 hash, seed;
+
+            seed = 0;
+            hash = murmur32("abcdefghijk", 11, seed);
+            ENSURE(hash == 0x4a7439a6U);
+
+            seed = 0x0BADBEEF;
+            hash = murmur32("abcdefghijk", 11, seed);
+            ENSURE(hash == 0xca73e643U);
+        }
+
+        // murmur64()
+        {
+            u64 hash, seed;
+
+            seed = 0;
+            hash = murmur64("abcdefghijk", 11, seed);
+            ENSURE(hash == 0xfeff07a18c726536ULL);
+
+            seed = 0x0BADBEEF;
+            hash = murmur64("abcdefghijk", 11, seed);
+            ENSURE(hash == 0x121f16453e7e7f16ULL);
+        }
+    }
+
+    static void test_string_id()
+    {
+        // StringId32
+        {
+            StringId32 a("abcdefghijk");
+            StringId32 b("abcdefghijk", 11);
+            StringId32 c(0x12345678U);
+            StringId32 zero;
+            char buf[STRING_ID32_BUF_LEN];
+
+            ENSURE(a == b);
+            ENSURE(a == 0x4a7439a6U);
+            ENSURE(a != c);
+            ENSURE(zero < a);
+
+            a.hash("hello crown!", 12);
+            ENSURE(a == 0xb43b4b93U);
+
+            a.parse("0BADBEEF");
+            ENSURE(a == 0x0BADBEEFU);
+
+            a.to_string(buf, STRING_ID32_BUF_LEN);
+            ENSURE(strcmp(buf, "0BADBEEF"));
+        }
+
+        // StringId64
+        {
+            StringId64 a("abcdefghijk");
+            StringId64 b("abcdefghijk", 11);
+            StringId64 c(0x1234567812345678ULL);
+            StringId64 zero;
+            char buf[STRING_ID64_BUF_LEN];
+
+            ENSURE(a == b);
+            ENSURE(a == 0xfeff07a18c726536ULL);
+            ENSURE(a != c);
+            ENSURE(zero < a);
+
+            a.hash("hello crown!", 12);
+            ENSURE(a == 0xc770ec4f5e298d4dULL);
+
+            a.parse("0BADBEEF0123BEEF");
+            ENSURE(a == 0x0BADBEEF0123BEEFULL);
+
+            a.to_string(buf, STRING_ID64_BUF_LEN);
+            ENSURE(strcmp(buf, "0BADBEEF0123BEEF"));
+        }
+    }
+
     static void test_string_inline()
     {
         // snprintf()
@@ -609,6 +689,8 @@ namespace crown
         RUN_TEST(test_new_delete);
         RUN_TEST(test_array);
         RUN_TEST(test_containers_pair);
+        RUN_TEST(test_murmur_hash);
+        RUN_TEST(test_string_id);
         RUN_TEST(test_string_inline);
         RUN_TEST(test_string_stream);
         return EXIT_SUCCESS;
