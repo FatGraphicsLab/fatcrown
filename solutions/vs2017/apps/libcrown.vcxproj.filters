@@ -75,6 +75,9 @@
     <ClInclude Include="..\..\..\src\core\strings\string_id.h">
       <Filter>source\core\strings</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\src\core\strings\string_view.h">
+      <Filter>source\core\strings</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\src\core\containers\array.inl">
@@ -105,6 +108,9 @@
       <Filter>source\core\containers</Filter>
     </None>
     <None Include="..\..\..\src\core\strings\string_id.inl">
+      <Filter>source\core\strings</Filter>
+    </None>
+    <None Include="..\..\..\src\core\strings\string_view.inl">
       <Filter>source\core\strings</Filter>
     </None>
   </ItemGroup>

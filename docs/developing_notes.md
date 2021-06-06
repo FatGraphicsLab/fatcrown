@@ -11,6 +11,20 @@
 
 
 
+## 2021-06-06
+
+core/string/string_view.h
+
+* 对 const char* 的一个片段做 view
+* 支持 ==, !=, < 等操作，方便放到容器中
+
+finished
+
+* `core/strings/string_view.h`
+* `core/strings/string_view.inl`
+
+
+
 ## 2021-06-05
 
 core/strings/string_id.h

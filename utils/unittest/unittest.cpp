@@ -15,6 +15,7 @@
 #include "core/strings/string.inl"
 #include "core/strings/string_id.inl"
 #include "core/strings/string_stream.inl"
+#include "core/strings/string_view.inl"
 
 #include <stdlib.h> // EXIT_SUCCESS, EXIT_FAILURE
 #include <stdio.h>
@@ -678,6 +679,34 @@ namespace crown
         memory_globals::shutdown();
     }
 
+    static void test_string_view()
+    {
+        StringView a;
+        ENSURE(a.length() == 0);
+        ENSURE(a.data() == NULL);
+
+        StringView b("hello");
+        ENSURE(b.length() == 5);
+        ENSURE(b == "hello");
+
+        StringView c("hello", 3);
+        ENSURE(c.length() == 3);
+        ENSURE(c == "hel");
+
+        a = "hel";
+        ENSURE(a.length() == 3);
+        ENSURE(a == "hel");
+        ENSURE(a == c);
+        ENSURE(memcmp(a.data(), "hel", 3) == 0);
+        ENSURE(a != b);
+        ENSURE(a < b);
+
+        a = "abC";
+        b = "abc";
+        ENSURE(a < b);
+        ENSURE('C' < 'c');
+    }
+
 #define RUN_TEST(name)      \
     do {                    \
         name();             \
@@ -693,6 +722,7 @@ namespace crown
         RUN_TEST(test_string_id);
         RUN_TEST(test_string_inline);
         RUN_TEST(test_string_stream);
+        RUN_TEST(test_string_view);
         return EXIT_SUCCESS;
     }
 
