@@ -29,7 +29,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrecInstance, LPSTR lpCmdLine
     }
 
     // TODO: WSAStartup()
-    CE_ASSERT(10 > 1, "hello");
+    CE_ASSERT(1 > 10, "hello");
 
     Sleep(5*1000);
 

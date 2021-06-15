@@ -78,6 +78,9 @@
     <ClInclude Include="..\..\..\src\core\strings\string_view.h">
       <Filter>source\core\strings</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\src\core\error\callstack.h">
+      <Filter>source\core\error</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\src\core\containers\array.inl">
@@ -126,6 +129,18 @@
     </ClCompile>
     <ClCompile Include="..\..\..\src\core\strings\string_id.cpp">
       <Filter>source\core\strings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\core\error\callstack_android.cpp">
+      <Filter>source\core\error</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\core\error\callstack_linux.cpp">
+      <Filter>source\core\error</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\core\error\callstack_windows.cpp">
+      <Filter>source\core\error</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\core\error\error.cpp">
+      <Filter>source\core\error</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

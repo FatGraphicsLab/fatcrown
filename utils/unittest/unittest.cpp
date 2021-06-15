@@ -43,14 +43,11 @@ namespace crown
 {
     static void test_default_allocator()
     {
-        memory_globals::init();
         Allocator& a = default_allocator();
 
         void* p = a.allocate(32);
         ENSURE(a.allocated_size(p) >= 32);
         a.deallocate(p);
-
-        memory_globals::shutdown();
     }
 
     // TODO(kasicass): unittest for temp_allocator
@@ -77,7 +74,6 @@ namespace crown
             Allocator& _allocator;
         };
 
-        memory_globals::init();
         Allocator& a = default_allocator();
 
         MyClass *obj1 = CE_NEW(a, MyClass);
@@ -87,14 +83,11 @@ namespace crown
         MyClassAllocatorAware *obj2 = CE_NEW(a, MyClassAllocatorAware)(a);
         ENSURE(a.allocated_size(obj2) >= sizeof(MyClassAllocatorAware));
         CE_DELETE(a, obj2);
-
-        memory_globals::shutdown();
 #endif
     }
 
     static void test_array()
     {
-        memory_globals::init();
         Allocator& a = default_allocator();
 
         // basic
@@ -317,13 +310,10 @@ namespace crown
             ENSURE(v3[3] == 4);
             ENSURE(v3[4] == 5);
         }
-
-        memory_globals::shutdown();
     }
 
     static void test_containers_pair()
     {
-        memory_globals::init();
         Allocator& a = default_allocator();
 
         struct NoAware
@@ -449,8 +439,6 @@ namespace crown
             ENSURE(&pair2.first._allocator == &a);
             ENSURE(&pair2.second._allocator == &a);
         }
-
-        memory_globals::shutdown();
     }
 
     static void test_murmur_hash()
@@ -618,8 +606,6 @@ namespace crown
 
     static void test_string_stream()
     {
-        memory_globals::init();
-
         // char
         {
             TempAllocator1024 ta;
@@ -675,8 +661,6 @@ namespace crown
             ss << a << b;
             ENSURE(strcmp(string_stream::c_str(ss), "1.2-6.466") == 0);
         }
-
-        memory_globals::shutdown();
     }
 
     static void test_string_view()
@@ -714,6 +698,7 @@ namespace crown
 
     int main_unit_tests()
     {
+        memory_globals::init();
         RUN_TEST(test_default_allocator);
         RUN_TEST(test_new_delete);
         RUN_TEST(test_array);
@@ -723,6 +708,7 @@ namespace crown
         RUN_TEST(test_string_inline);
         RUN_TEST(test_string_stream);
         RUN_TEST(test_string_view);
+        memory_globals::shutdown();
         return EXIT_SUCCESS;
     }
 

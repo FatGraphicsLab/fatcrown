@@ -22,6 +22,7 @@
     <ClInclude Include="..\..\..\src\config.h" />
     <ClInclude Include="..\..\..\src\core\containers\pair.h" />
     <ClInclude Include="..\..\..\src\core\containers\types.h" />
+    <ClInclude Include="..\..\..\src\core\error\callstack.h" />
     <ClInclude Include="..\..\..\src\core\error\error.h" />
     <ClInclude Include="..\..\..\src\core\functional.h" />
     <ClInclude Include="..\..\..\src\core\memory\allocator.h" />
@@ -51,6 +52,10 @@
     <None Include="..\..\..\src\core\thread\scoped_mutex.inl" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\src\core\error\callstack_android.cpp" />
+    <ClCompile Include="..\..\..\src\core\error\callstack_linux.cpp" />
+    <ClCompile Include="..\..\..\src\core\error\callstack_windows.cpp" />
+    <ClCompile Include="..\..\..\src\core\error\error.cpp" />
     <ClCompile Include="..\..\..\src\core\memory\globals.cpp" />
     <ClCompile Include="..\..\..\src\core\murmur.cpp" />
     <ClCompile Include="..\..\..\src\core\strings\string_id.cpp" />

@@ -129,7 +129,7 @@ inline bool str_has_prefix(const char* s, const char* prefix)
 inline bool str_has_suffix(const char* s, const char* suffix)
 {
     CE_ENSURE(NULL != s);
-    CE_ENSURE(NULL != prefix);
+    CE_ENSURE(NULL != suffix);
     const u32 ml = strlen32(s);
     const u32 sl = strlen32(suffix);
     return (sl <= ml) && (strncmp(s + ml - sl, suffix, sl) == 0);

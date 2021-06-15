@@ -21,6 +21,11 @@
   <ItemGroup>
     <ClCompile Include="..\..\..\src\device\main_windows.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="libcrown.vcxproj">
+      <Project>{5e2842a5-37d6-45f1-8d8e-0b7608bcd4c6}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{8F189920-6D99-4112-AE7E-5C77A1D27657}</ProjectGuid>

@@ -2,12 +2,21 @@
 
 
 
-## OBJECTIVES
+## TODO
 
 * SSAO
   * https://ourmachinery.com/post/beta-2021-5/#screen-space-ambient-occlusion
+
+
+
+## 2021-06-15
+
 * debug-build unittest works~
   * depends on `crown::error::abort()`
+
+finished
+
+* `core/error/error.cpp`
 
 
 

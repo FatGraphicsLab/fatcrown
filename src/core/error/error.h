@@ -10,12 +10,8 @@
 
 #include "core/types.h"
 
-namespace crown
-{
+namespace crown { namespace error {
 
-    namespace error
-    {
-        void abort(const char* format, ...);
-    } // namespace error
+    void abort(const char* format, ...);
 
-} // namespace crown
+}} // namespace crown::error
